@@ -45,6 +45,13 @@ public class ClienteServiceImpl implements ClienteService {
 		Optional<Cliente> cliente = clienteRepository.findById(id);
 		return cliente.get();
 	}
+	
+	@Override
+	public Cliente buscarPorNome(String nome) {
+		// Buscar Cliente pelo Nome.
+		Optional<Cliente> cliente = clienteRepository.findByNome(nome);
+		return cliente.get();
+	}
 
 	@Override
 	public void inserir(Cliente cliente) {

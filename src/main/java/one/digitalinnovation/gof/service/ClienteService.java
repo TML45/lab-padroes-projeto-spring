@@ -14,6 +14,8 @@ public interface ClienteService {
 	Iterable<Cliente> buscarTodos();
 
 	Cliente buscarPorId(Long id);
+	
+	Cliente buscarPorNome(String nome);
 
 	void inserir(Cliente cliente);
 
