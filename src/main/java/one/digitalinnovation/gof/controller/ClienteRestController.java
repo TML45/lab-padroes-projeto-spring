@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import one.digitalinnovation.gof.model.Cliente;
@@ -33,9 +34,14 @@ public class ClienteRestController {
 		return ResponseEntity.ok(clienteService.buscarTodos());
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping(value = "/{id}")
 	public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
 		return ResponseEntity.ok(clienteService.buscarPorId(id));
+	}
+	
+	@GetMapping(value = "/nome/{nome}")
+	public ResponseEntity<Cliente> buscarPorNome(@PathVariable String nome){
+		return ResponseEntity.ok(clienteService.buscarPorNome(nome));
 	}
 
 	@PostMapping
